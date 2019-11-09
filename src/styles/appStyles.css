@@ -1,0 +1,76 @@
+.html {
+  box-sizing: border-box;
+}
+.Mask {
+  background : linear-gradient(to bottom, rgba(250, 145, 97, 0.7), rgba(247, 59, 28, 0.69));
+  transition : opacity ease-out 0.7s;
+}
+.Mask2 {
+  background: linear-gradient(to bottom, #47e4c1, #07cddd);
+  transition : opacity ease-out 0.7s;
+}
+.Mask4 {
+  background: linear-gradient(to bottom, rgba(241, 170, 100, 0.7), rgba(250, 90, 48, 0.7));
+  transition : opacity ease-out 0.5s;
+}
+.Mask3, .Mask, .Mask2, .Mask4 {
+  width: 90vw;
+  height: 70vh;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 6px rgba(167, 196, 220, 0.5);
+  font-family : Muli;
+  margin:5vh auto 5vh auto;
+  overflow-y: scroll; /*  Just incase of really long questions  */
+  overflow-x:hidden;
+  position:absolute;
+  left : 50%;
+  margin-left : -45vw;
+}
+
+.Rectangle {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+}
+.outcome {
+  text-align: center;
+  padding-top :5vh;
+  margin:1vh auto;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.38px;
+  color: #ffffff;
+}
+@media only screen and (max-width: 450px) {
+  .Mask, .Mask2, .Mask3 {
+    width : 92vw;
+    margin-left : -46vw;
+  }
+  .outcome {
+    font-size : 12px;
+    letter-spacing: 0.3px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .Mask, .Mask2, .Mask3 {
+    width : 96vw;
+    margin-left : -48vw;
+  }
+  .outcome {
+    font-size : 10px;
+    letter-spacing: 0.25px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .outcome {
+    font-size : 17px;
+    letter-spacing: 0.4px;
+  }
+  .Mask, .Mask2, .Mask3 {
+    height : 85vh;
+  }
+}

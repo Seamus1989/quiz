@@ -1,0 +1,80 @@
+
+.Answer {
+  width : 75vw;
+  height: 45px;
+  border-radius: 100px;
+  border: solid 1px #fbfbfb;
+  margin: 10px auto;
+  display:flex;
+  position : relative;
+}
+.choices {
+  flex : 1 1 0;
+  min-height: fit-content;
+  font-family: Muli;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.38px;
+  text-align: center;
+  margin:auto;
+  color: #ffffff;
+}
+.slider {
+  width : 500px;
+  height: 45px;
+  border-radius: 100px;
+  margin: 0px auto;
+  display:flex;
+  position : absolute;
+  opacity : 0;
+}
+@media only screen and (max-width: 450px) {
+  .choices {
+    font-size : 11px;
+    letter-spacing: 0.3px;
+  }
+  .slider {
+    height : 38px;
+  }
+  .Answer {
+    width : 90vw;
+    height: 38px;
+    border-radius: 90px;
+    border: solid 0.8px #fbfbfb;
+    margin:3vw auto;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .choices {
+    font-size : 9px;
+    letter-spacing: 0.25px;
+  }
+  .slider {
+    height : 30px;
+  }
+  .Answer {
+    width : 94vw;
+    height: 30px;
+    margin:5vw auto;
+    border-radius: 80px;
+    border: solid 0.7px #fbfbfb;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .choices {
+    font-size : 16px;
+    letter-spacing: 0.4px;
+  }
+  .slider {
+    height : 50px;
+  }
+  .Answer {
+    width : 80vw;
+    height: 50px;
+    margin:1.5vw auto;
+    border-radius: 110px;
+    border: solid 1px #fbfbfb;
+  }
+}

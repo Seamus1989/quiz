@@ -1,0 +1,30 @@
+.Question {
+  text-align: center;
+  padding-top : 10vh;
+  margin:1vh auto;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.38px;
+  color: #ffffff;
+}
+@media only screen and (max-width: 450px) {
+  .Question {
+    font-size : 12px;
+    letter-spacing: 0.3px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .Question {
+    font-size : 10px;
+    letter-spacing: 0.25px;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .Question {
+    font-size : 17px;
+    letter-spacing: 0.4px;
+  }
+}
