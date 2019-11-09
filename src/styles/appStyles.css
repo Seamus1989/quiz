@@ -45,7 +45,7 @@
   color: #ffffff;
 }
 @media only screen and (max-width: 450px) {
-  .Mask, .Mask2, .Mask3 {
+  .Mask, .Mask2, .Mask3, .Mask4 {
     width : 92vw;
     margin-left : -46vw;
   }
@@ -55,7 +55,7 @@
   }
 }
 @media only screen and (max-width: 380px) {
-  .Mask, .Mask2, .Mask3 {
+  .Mask, .Mask2, .Mask3, .Mask4 {
     width : 96vw;
     margin-left : -48vw;
   }
