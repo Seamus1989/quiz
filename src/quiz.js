@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Question from './question';
 import Answer from './answer';
-
+import Modal from './modal'
 // Import Variables
 import { questions } from './variables/questionVariable';
 
@@ -50,7 +50,23 @@ opacity: ${(props) => {
   }};
 }};
 `;
+/*
+QuestionNumber, question
 
+sub question - incorrect guesses, number of clicks
+answers = {
+  1 : {
+    question : "an animal cell contains:" = this.state.question
+    wrongAnswers : [],
+    wrongClicks : 0 = wrongAnswers.length
+
+  },
+  2 : {
+
+}
+object[questionNumber][question]
+question and wrong answer
+*/
 export default class Quiz extends React.Component {
   constructor(props) {
     super(props);
@@ -69,9 +85,13 @@ export default class Quiz extends React.Component {
       background: 'normal',
       message: 'The Answer is incorrect',
       setComplete: false,
+      summary : {},
+      showModal : false
     };
     this.handleNext = this.handleNext.bind(this);
     this.correctSingleSelection = this.correctSingleSelection.bind(this)
+    this.wrongAnswers = this.wrongAnswers.bind(this)
+    this.toggleModal = this.toggleModal.bind(this) // WE NEED TO DELETE THIS YEAH
   }
 
   correctSingleSelection() {
@@ -111,9 +131,48 @@ export default class Quiz extends React.Component {
         }));
       } else if (this.state.questionNumber === this.state.questionContainer.length) {
         console.log('THIS IS THE END SON');
+        this.setState((state) => ({
+          showModal : true
+        }))
         // perhaps a modal with number of clicks wrong on each question or summat. Start again button?
       }
     }, 2200);
+  }
+
+  wrongAnswers(selection, bool) {
+    let no = this.state.questionNumber
+    let summaryDeepCopy = JSON.parse(JSON.stringify(this.state.summary))
+    if (!summaryDeepCopy[no]) {
+      summaryDeepCopy[no] = {};
+      summaryDeepCopy[no]["Question"] = this.state.question
+      summaryDeepCopy[no]["Wrong answers"] = [];
+      summaryDeepCopy[no]["Incorrect clicks"] = 0
+    }
+    if (bool && summaryDeepCopy[no]["Wrong answers"].length === 0) {
+      summaryDeepCopy[no]["Wrong answers"].push("None!")
+      this.setState((state) => ({
+        summary: summaryDeepCopy
+      }))
+    } else if (!bool) {
+      summaryDeepCopy[no]["Wrong answers"].push(selection)
+      summaryDeepCopy[no]["Incorrect clicks"] = summaryDeepCopy[no]["Wrong answers"].length
+      if (summaryDeepCopy[no]["Wrong answers"].includes("None!")) {
+        let noneIndex = summaryDeepCopy[no]["Wrong answers"].indexOf("None!")
+        summaryDeepCopy[no]["Wrong answers"].splice(noneIndex, 1)
+      }
+      this.setState((state) => ({
+        summary: summaryDeepCopy
+      }))
+    }
+  }
+
+  toggleModal() {
+    this.setState((state) => ({
+      showModal : !state.showModal
+    }))
+  }
+  componentDidUpdate() {
+    console.log(this.state.summary)
   }
 
   render() {
@@ -133,18 +192,19 @@ export default class Quiz extends React.Component {
               handleNext={this.handleNext}
               complete={this.state.setComplete}
               intermediate = {this.correctSingleSelection}
+              wrongAnswers = {this.wrongAnswers}
             />
             <div><h5 className="outcome">{this.state.message}</h5></div>
           </div>
         </div>
-
+        <button onClick = {this.toggleModal}>hello</button>
+        {this.state.showModal && <Modal summary = {this.state.summary} toggleModal = {this.toggleModal}/>}
       </>
     );
   }
 }
-/*
-import styled components,
-this.state.background now becomes a string off default, change,
 
+/*
+Make a modal which maps instances of a component that breaks down the wrong clicks etc of the questions
 
 */

@@ -1,0 +1,82 @@
+
+.modal {
+  z-index : 120;
+  height : 80vh;
+  width : 90vw;
+  margin: 0px auto;
+  border: 0.5px solid black;
+  border-radius:15px 10px 20px 20px;
+  overflow-y:scroll;
+}
+.inner-modal {
+  background: linear-gradient(to bottom, #00d4ff 0%, #2626aa 100%);
+  height:max-content;
+}
+.close {
+  position: -webkit-sticky;
+  position: sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  top:0;
+  z-index:6;
+  color: #aaa;
+  float: right;
+  overflow:hidden;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top:10px;
+  margin-right:15px;
+  margin-left:5px;
+}
+.close:hover, .close:active,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.head {
+  color: rgba(0,0,0,0.65);
+  display : inline;
+  margin-left:25px;
+  width : 100px;
+}
+.top {
+  height : 25px;
+}
+.under {
+  padding : 10px 20px 20px 10px;
+}
+.single-summary {
+  background: rgba(255,255,255,0.9);
+  margin: 25px 25px;
+  box-sizing: border-box;
+  min-width : inherit;
+  max-width : max-content;
+  padding : 10px 30px 10px 10px;
+  border-radius:10px 10px 10px 10px;
+  color: rgba(0,0,0,0.45);
+  box-shadow: 0 2px 12px 6px rgba(0,0,0,0.15);
+  text-align:center;
+  justify-self: center;
+}
+
+.int {
+  margin:5px auto;
+  text-align: center;
+}
+@media only screen and (max-width: 450px) {
+  .modal {
+    width : 92vw;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .modal {
+    width : 96vw;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .Mask, .Mask2, .Mask3, .Mask4 {
+    height : 85vh;
+  }
+}

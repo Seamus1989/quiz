@@ -24,6 +24,7 @@
   overflow-x:hidden;
   position:absolute;
   left : 50%;
+  top : 9vh;
   margin-left : -45vw;
 }
 
